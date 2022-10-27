@@ -29,3 +29,19 @@ function Escolha(){
     escolha = prompt('Deseja fazer qual operação ? 1- Cadastro, 2-Login, 3-Excluir um cadastro, 4-Finalizar o programa')
     return escolha
 }
+
+function Login() {
+    userA = prompt('Informe seu usúario: ')
+    senhaA = prompt('Informe sua senha: ')
+    for(var index = 0; index < user.length; index++){
+        if(user[index] == userA && senhaA[index] == senhaA){
+            console.log('Login bem sucedido!')
+            var confirmacao = true
+        }else{
+            var confirmacao = false
+        }
+    }
+    if(confirmacao == false){
+        console.log('Usúario ou senha incorretos!')
+    }
+}
