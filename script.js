@@ -24,17 +24,17 @@ var senhaA
 var userSuporte = []
 var indexB = 0
 var senhaSuporte = []
+var confirmacaoA = true
 
+function Escolha(){
+    escolha = prompt('Deseja fazer qual operação ? 1- Cadastro, 2-Login, 3-Excluir um cadastro, 4-Finalizar o programa')
+    return escolha
+}
 
 function Cadastro(){
     user[indexA] = prompt('Digite um usúario: ')
     senha[indexA] = prompt('Digite sua senha: ')
     indexA++
-}
-
-function Escolha(){
-    escolha = prompt('Deseja fazer qual operação ? 1- Cadastro, 2-Login, 3-Excluir um cadastro, 4-Finalizar o programa')
-    return escolha
 }
 
 function Login(user, senha) {
@@ -74,5 +74,18 @@ function ExcluirUser(user, senha) {
         }
     }else(confirmacao == false);{
         console.log('Usúario ou senha incorretos')
+    }
+}
+
+while(confirmacaoA){
+    Escolha()
+    if(escolha == 1){
+        Cadastro()
+    } else if(escolha == 2){
+        Login(user, senha)
+    } else if(escolha == 3){
+        ExcluirUser(user, senha)
+    } else if(escolha == 4){
+        confirmacaoA = false 
     }
 }
