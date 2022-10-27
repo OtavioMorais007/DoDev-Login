@@ -25,6 +25,7 @@ var userSuporte = []
 var indexB = 0
 var senhaSuporte = []
 var confirmacaoA = true
+var confirmacao = false
 
 function Escolha(){
     escolha = prompt('Deseja fazer qual operação ? 1- Cadastro, 2-Login, 3-Excluir um cadastro, 4-Finalizar o programa')
@@ -32,30 +33,24 @@ function Escolha(){
 }
 
 function Cadastro(){
-    user[indexA] = prompt('Digite um usúario: ')
-    senha[indexA] = prompt('Digite sua senha: ')
     indexA++
 }
 
 function Login(user, senha) {
-    userA = prompt('Informe seu usúario: ')
-    senhaA = prompt('Informe sua senha: ')
     for(var index = 0; index <= user.length; index++){
         if(user[index] == userA && senha[index] == senhaA){
-            console.log('Login bem sucedido!')
             var confirmacao = true
-        }else{
-            var confirmacao = false
         }
     }
-    if(confirmacao == false){
+    if(confirmacao == true){
+        console.log('Login bem sucedido!')
+        confirmacao = false
+    }else(
         console.log('Usúario ou senha incorretos!')
-    }
+    )
 }
 
 function ExcluirUser(user, senha) {
-    userA = prompt('Informe o usúario a ser excluido: ')
-    senhaA = prompt('Informe a senha para confirmação: ')
     for(var index = 0; index <= user.length; index++){
         if(user[index] == userA && senha[index] == senhaA){
             user[index] = 0
@@ -80,11 +75,18 @@ function ExcluirUser(user, senha) {
 while(confirmacaoA){
     Escolha()
     if(escolha == 1){
+        user[indexA] = prompt('Digite um usúario: ')
+        senha[indexA] = prompt('Digite sua senha: ')
         Cadastro()
     } else if(escolha == 2){
+        userA = prompt('Informe seu usúario: ')
+        senhaA = prompt('Informe sua senha: ')
         Login(user, senha)
     } else if(escolha == 3){
         ExcluirUser(user, senha)
+        userA = prompt('Informe o usúario a ser excluido: ')
+        senhaA = prompt('Informe a senha para confirmação: ')
+        confirmacao = false
     } else if(escolha == 4){
         confirmacaoA = false 
     }
