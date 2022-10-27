@@ -19,10 +19,17 @@ var user = []
 var senha = []
 var indexA = 0
 var escolha 
+var userA
+var senhaA
+var userSuporte = []
+var indexB = 0
+var senhaSuporte = []
+
 
 function Cadastro(){
     user[indexA] = prompt('Digite um usúario: ')
     senha[indexA] = prompt('Digite sua senha: ')
+    indexA++
 }
 
 function Escolha(){
@@ -30,11 +37,11 @@ function Escolha(){
     return escolha
 }
 
-function Login() {
+function Login(user, senha) {
     userA = prompt('Informe seu usúario: ')
     senhaA = prompt('Informe sua senha: ')
-    for(var index = 0; index < user.length; index++){
-        if(user[index] == userA && senhaA[index] == senhaA){
+    for(var index = 0; index <= user.length; index++){
+        if(user[index] == userA && senha[index] == senhaA){
             console.log('Login bem sucedido!')
             var confirmacao = true
         }else{
@@ -43,5 +50,29 @@ function Login() {
     }
     if(confirmacao == false){
         console.log('Usúario ou senha incorretos!')
+    }
+}
+
+function ExcluirUser(user, senha) {
+    userA = prompt('Informe o usúario a ser excluido: ')
+    senhaA = prompt('Informe a senha para confirmação: ')
+    for(var index = 0; index <= user.length; index++){
+        if(user[index] == userA && senha[index] == senhaA){
+            user[index] = 0
+            senha[index] = 0
+            var confirmacao = true
+        }else{
+            var confirmacao = false
+        }
+    }if(confirmacao == true){
+        for(var index = 0; index <= user.length; index++){
+            if(user[index] != 0){
+                userSuporte[indexB] = user[index]
+                senhaSuporte[indexB] = senha[index]
+                indexB++
+            }
+        }
+    }else(confirmacao == false);{
+        console.log('Usúario ou senha incorretos')
     }
 }
